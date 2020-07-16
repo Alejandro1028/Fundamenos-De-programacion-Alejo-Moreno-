@@ -1,0 +1,38 @@
+Console.WriteLine("Escriba su estatura en centimetros ");
+            double estatura = double.Parse(Console.ReadLine());
+
+
+            Console.WriteLine("Escriba su peso en Kilogramos");
+            double peso = double.Parse(Console.ReadLine());
+
+            double estaturab = (estatura / 100);
+
+            double IMC = (peso / (estaturab * estaturab));
+
+
+            if (IMC < 18.5)
+            {
+                Console.WriteLine("Su indice es: " + IMC);
+                Console.WriteLine("Estas bajo de peso");
+
+            }
+
+            else if (18.5 <= IMC && IMC < 25)
+
+            {
+                Console.WriteLine("Su indice es: " + IMC);
+                Console.WriteLine("Tienes un peso normal");
+            }
+
+            else if (25.0 <= IMC && IMC < 29.9)
+
+            {
+                Console.WriteLine("Su indice es: " + IMC);
+                Console.WriteLine("Tienes sobrepeso");
+            }
+
+            else if (IMC > 30.0)
+
+            {
+                Console.WriteLine("Su indice es: " + IMC);
+                Console.WriteLine("Tienes obesidad");
