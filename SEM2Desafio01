@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Alejo
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            int smmlv = 877803;
+
+            Console.WriteLine("especifique su salario:");
+            double salario = double.Parse(Console.ReadLine());
+
+
+            if (salario < 2 * smmlv)
+            {
+
+                Console.WriteLine("Tarifa A");
+
+            }
+
+            else if ((smmlv * 2) <= salario && salario <= (smmlv * 4))
+            {
+
+                Console.WriteLine("Tarifa B");
+            }
+            else if (salario > (4 * smmlv))
+            {
+
+                Console.WriteLine("Tarifa C");
+
+
+            }
+        }
+    }
+}
