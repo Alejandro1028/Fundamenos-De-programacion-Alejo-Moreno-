@@ -1,0 +1,63 @@
+Console.WriteLine("digite su salario");
+            double SalarioMensual = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("tipo de contrato? 1 si es dependiente , 2 si es independiente");
+            int contrato = int.Parse(Console.ReadLine());
+
+            double smmlv = 877803;
+
+            double baseCotizacion = SalarioMensual * 0.4;
+            double arl = 0;
+
+            if (baseCotizacion < smmlv)
+            {
+                baseCotizacion = smmlv;
+            }
+
+            if (contrato == 1)
+            {
+                double pension = baseCotizacion * 0.04;
+                double eps = baseCotizacion * 0.04;
+                double SalarioRM = SalarioMensual - pension - eps;
+                Console.WriteLine("su salario mensual real es: " + SalarioRM);
+                double salarioAnual = SalarioRM * 12 + SalarioMensual;
+                Console.WriteLine("su salario anual con bonificaciones y deducciones es:"+ salarioAnual );
+
+            }
+             
+            else if (contrato == 2)
+            {
+                double pension = baseCotizacion * 0.16;
+                double eps = baseCotizacion * 0.125;
+                Console.WriteLine("digite su numero de riesgo (1,2,3,4,5)");
+                int riesgo = int.Parse(Console.ReadLine());
+
+                switch (riesgo)
+                {
+                    case 1:
+                        arl = baseCotizacion * 0.00522;
+                        break;
+                    case 2:
+                        arl = baseCotizacion * 0.01044;
+                        break;
+                    case 3:
+                        arl = baseCotizacion * 0.2436;
+                        break;
+                    case 4:
+                        arl = baseCotizacion * 0.4350;
+                        break;
+                    default:
+                        arl = baseCotizacion * 0.0696;
+                        break;
+                }
+
+                double deducciones = pension + arl + eps;
+                double salarioRM = SalarioMensual - deducciones;
+                Console.WriteLine("Salario real mensual es igual a: " + salarioRM);
+                double salarioAR = salarioRM * 12;
+                Console.WriteLine("salario anual con deducciones es: " + salarioAR);
+            }
+
+            else
+            {
+                Console.WriteLine("error");
