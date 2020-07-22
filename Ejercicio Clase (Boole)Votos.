@@ -1,0 +1,63 @@
+int a;
+            int b;
+            int blancos;
+            int anulados;
+            int n;
+            int mayores;
+
+            int abstencion;
+            int poblacionM;
+
+            Console.WriteLine("número de votos por partido 1");
+            a = int.Parse(Console.ReadLine());
+
+
+
+            Console.WriteLine("número de votos por partido 2");
+            b = int.Parse(Console.ReadLine());
+
+
+            Console.WriteLine("número de votos por blanco");
+            blancos = int.Parse(Console.ReadLine());
+
+
+            Console.WriteLine("número de votos anulados");
+            anulados = int.Parse(Console.ReadLine());
+
+
+
+            Console.WriteLine("número total de poblacion");
+            n = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("porcentaje de (0 a 100%) de la poblacion que es mayor");
+            mayores = int.Parse(Console.ReadLine());
+
+            poblacionM = n * (mayores);
+
+            Console.WriteLine("poblacion mayor" + poblacionM);
+            int votantes = a + b + blancos + anulados;
+            abstencion = (poblacionM - votantes);
+
+            Console.WriteLine("abstencion: " + abstencion);
+
+            Console.WriteLine("votantes: " + votantes);
+
+            if ((anulados < (0.3 * (a + b)) || (a + b) > blancos) && abstencion < votantes)
+            {
+
+                Console.WriteLine("las votaciones fueron exitosas");
+
+                if (a > b)
+                {
+                    Console.WriteLine("Gnador de elecciones: A");
+                }
+                else
+                {
+                    Console.WriteLine("Gnador de elecciones: B");
+                }
+
+            }
+            else
+            {
+
+                Console.WriteLine("Se deben repetir");
