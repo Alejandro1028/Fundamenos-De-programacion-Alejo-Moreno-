@@ -1,0 +1,35 @@
+ double total = 0;
+
+            Console.WriteLine("Ingrese el numero de datos (n): ");
+            int n = int.Parse(Console.ReadLine());
+            string nombreMax = "";
+            string nombreMin = "";
+
+            int i = 0, max = 0, min = 200;
+
+            while (i < n)
+            {
+                Console.WriteLine("edad");
+                int edad = int.Parse(Console.ReadLine());
+
+                Console.WriteLine("nombre");
+                string nombre = Console.ReadLine();
+
+                if (edad > max)
+                {
+                    max = edad;
+                    nombreMax = nombre;
+                }
+                if (edad < min)
+                {
+                    min = edad;
+                    nombreMin = nombre;
+                }
+
+                total += edad;
+                i++;
+            }
+            double promedio = total / n;
+            Console.WriteLine("promedio = " + promedio);
+            Console.WriteLine("nombre del mayor: " + nombreMax + "  con una edad de " + max);
+            Console.WriteLine("nombre del menor: " + nombreMin + " con una edad de " + min);
