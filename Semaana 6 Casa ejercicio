@@ -1,0 +1,41 @@
+Random aleatoria = new Random();
+            int total = 0, dado = 0, vidas = 3, perderVidas = 0, ganarVidas = 0, dadob = 0;
+            Console.WriteLine("¿Desea empezar el juego? s/n");
+            string respuesta = Console.ReadLine();
+            while (respuesta == "s")
+            {
+                dado = aleatoria.Next(1, 7);
+                total += dado;
+                perderVidas++;
+                ganarVidas++;
+                Console.WriteLine("su dado es: " + dado + " y su total: " + total);
+                if (perderVidas == 2)
+                {
+                    vidas--;
+                    Console.WriteLine("Acaba de perder una vida, usted queda con " + vidas + " vidas");
+                    perderVidas = 0;
+                }
+                if (ganarVidas == 3)
+                {
+                    dadob = aleatoria.Next(1, 7);
+                    if (dado == dadob)
+                    {
+                        Console.WriteLine("Acaba de sacar dados iguales: usted gana una vida");
+                        vidas++;
+                    }
+                    Console.WriteLine("su segundo dado es: " + dadob + " y su  nuevo total es: " + total);
+                }
+                if (total > 100)
+                {
+                    Console.WriteLine(" GANASTE ");
+                    break;
+                }
+                if (vidas == 0)
+                {
+                    Console.WriteLine("acabas de perder");
+                    break;
+                }
+                Console.WriteLine(" ¿Desea continuar?  ");
+                respuesta = Console.ReadLine();
+            }
+            Console.WriteLine("Su total quedo en: " + total);
