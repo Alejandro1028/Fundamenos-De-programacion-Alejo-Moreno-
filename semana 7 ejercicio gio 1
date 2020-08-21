@@ -6,9 +6,9 @@ string[] nombres = { "nezuko", "tanjiro", "zenitsu", "inosuke", "genya", "kanao"
                 {
                     if (estatura[i] < estatura[i + 1])
                     {
-                        string tpmN = nombres[i];
+                        string tpmb = nombres[i];
                         nombres[i] = nombres[i + 1];
-                        nombres[i + 1] = tpmN;
+                        nombres[i + 1] = tpmb;
                         double tpm = estatura[i];
                         estatura[i] = estatura[i + 1];
                         estatura[i + 1] = tpm;
@@ -17,5 +17,5 @@ string[] nombres = { "nezuko", "tanjiro", "zenitsu", "inosuke", "genya", "kanao"
             }
             for (int k = 0; k < estatura.Length; k++)
             {
-                Console.WriteLine((k + 1) + " " + nombres[k] + " con:" + estatura[k]);
+                Console.WriteLine((k + 1) + " " + nombres[k] + " y:" + estatura[k]);
             }
