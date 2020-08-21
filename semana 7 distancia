@@ -1,0 +1,29 @@
+string[] nombres = { "Tanjiro", "nezuko", "zenitsu", "inosuke", "genya", "kanao", "tomioka" };
+            double[] estatura = { 165, 153, 164, 164.5, 180, 156, 176 };
+
+            double total = 0;
+            double[] distancia = new double[7];
+            double min = 200;
+            int indice = 0;
+
+            for (int i = 0; i < estatura.Length; i++)
+            {
+                total += estatura[i];
+            }
+            double promedio = total / 7;
+            Console.WriteLine(promedio);
+
+            for (int i = 0; i < estatura.Length; i++)
+            {
+                distancia[i] = Math.Abs(promedio - estatura[i]);
+                Console.WriteLine("la distancia:" + (i + 1));
+                Console.WriteLine(distancia[i]);
+
+                if (distancia[i] < min)
+                {
+                    min = distancia[i];
+                    indice = i;
+                }
+            }
+
+            Console.WriteLine("la persona con la distancia menor es: " + nombres[indice] + "con una estatura de: " + estatura[indice]);
