@@ -1,0 +1,76 @@
+Random random = new Random();
+            int max = 0;
+            int pos = 0;
+            int segundo = 0;
+            int pos2 = 0;
+            Console.WriteLine("ingrese cantidad de jugadores");
+            int n = int.Parse(Console.ReadLine());
+            int[] puntajes = new int[n];
+            for (int i = 0; i < puntajes.Length; i++)
+            {
+                Console.WriteLine("bienvenido jugador : {0}", i + 1);
+                int carta1 = random.Next(1, 11);
+                int carta2 = random.Next(1, 11);
+                puntajes[i] = carta1 + carta2;
+                Console.WriteLine("Carta 1: " + carta1 + " Carta 2: " + carta2);
+                Console.WriteLine("Total: " + puntajes[i]);
+                while (puntajes[i] < 21)
+                {
+                    Console.WriteLine("Desea otra carta (s/n)");
+                    string respuesta = Console.ReadLine();
+                    switch (respuesta)
+                    {
+                        case "n":
+                            break;
+                        case "s":
+                            int cartaN = random.Next(1, 11);
+                            puntajes[i] += cartaN;
+                            Console.WriteLine("Carta : " + cartaN);
+                            if (puntajes[i] > 21)
+                            {
+                                Console.WriteLine("Has sido eliminado");
+                               
+                                Console.WriteLine("total: " + puntajes[i]);
+                                break;
+                            }
+                            else
+                            {
+                                Console.WriteLine("total: " + puntajes[i]);
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+                    if (respuesta == "n")
+                    {
+                        break;
+                    }
+                }
+                Console.WriteLine("Fin del turno");
+                if (i == puntajes.Length - 1)
+                {
+                    Console.Write("puntajes: ");
+                    for (int h = 0; h < puntajes.Length; h++)
+                    {
+                        Console.Write(puntajes[h] + ", ");
+                        if (puntajes[h] > max)
+                        {
+                            max = puntajes[h];
+                            pos = h;
+                        }
+                    }
+                    Console.WriteLine("el ganador es: {0}", pos + 1);
+                    for (int k = 0; k < puntajes.Length; k++)
+                    {
+                        Console.Write(puntajes[k] + ", ");
+                        if (puntajes[k]<max && puntajes[k] > segundo)
+                        {
+                            segundo = puntajes[k];
+                            pos2 = k;
+                        }
+                    }
+                    Console.WriteLine("el segundo es: {0}", pos2 + 1);
+                }
+                
+            }
+            Console.ReadKey();
